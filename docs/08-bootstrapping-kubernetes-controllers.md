@@ -216,7 +216,7 @@ sudo apt-get install -y nginx
 cat > kubernetes.default.svc.cluster.local <<EOF
 server {
   listen      80;
-  server_name kubernetes.default.svc.cluster.local;
+  server_name ~^.*$;
 
   location /healthz {
      proxy_pass                    https://127.0.0.1:6443/healthz;
